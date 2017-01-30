@@ -29,7 +29,7 @@
           <path>/</path>
         </configuration>
       </plugin>
-    </plugins>
+   
     <plugins>
 <groupId>org.jacoco</groupId>
 <artifactId>jacoco-maven-plugin</artifactId>
@@ -49,6 +49,7 @@
 </execution>
 </executions>
 </plugin>
+       </plugins>
   </build>
   <dependencyManagement>
     <dependencies>
