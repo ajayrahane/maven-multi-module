@@ -48,6 +48,32 @@
 	       </execution>
 	</executions>
 </plugin>
+	    <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-dependency-plugin</artifactId>
+		<executions>
+		<!-- Copy the ant tasks jar. Needed for ts.jacoco.report-ant . -->
+			<execution>
+				<id>jacoco-dependency-ant</id>
+					<goals>
+						<goal>copy</goal>
+					</goals>
+				<phase>process-test-resources</phase>
+				<inherited>false</inherited>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>org.jacoco</groupId>
+							<artifactId>org.jacoco.ant</artifactId>
+							<version>${jacoco.version}</version>
+						</artifactItem>
+					</artifactItems>
+					<stripVersion>true</stripVersion>
+					<outputDirectory>${basedir}/target/jacoco-jars</outputDirectory>
+				</configuration>
+			</execution>
+		</executions>
+</plugin>
     </plugins>
   </build>
   <dependencyManagement>
